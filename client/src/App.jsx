@@ -1,15 +1,30 @@
 
 import React, { lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import RingLoader from "react-spinners/RingLoader"
 const WebHomePage = lazy(() => import(/* webpackChunkName: "WebHomePage" */'./website/homePage/HomePage'))
 const AboutUsPage = lazy(() => import(/* webpackChunkName: "WebAboutUsPage" */'./website/aboutPage/AboutUs'))
+const override = {
+  display: "block",
+  position: "absolute",
+  top: "44%",
+  left: "50%",
+  transform: "translate(-50%, -50%)"
+};
+
+const routes = [
+  { path: '/', element: <WebHomePage /> },
+  { path: '/about', element: <AboutUsPage /> },
+];
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<RingLoader color="#36d637" cssOverride={override} aria-label="Loading Spinner" data-testid="loader" />}>
+
       <Routes>
-        <Route exact path="/" element={<WebHomePage />} />
-        <Route path="/about" element={<AboutUsPage />} />
+        {routes.map((route, index) => (
+          <Route key={index} {...route} />
+        ))}
 
         {/* <Route path="account-setup/*">
           <PrivateRoute allowedRoles={[ACCESSTYPE.Admin]}>
@@ -19,6 +34,7 @@ function App() {
         </Route> */}
       </Routes>
     </Suspense>
+
   );
 }
 
