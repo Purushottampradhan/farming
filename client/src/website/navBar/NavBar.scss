@@ -1,0 +1,38 @@
+@use "../../variable" as *;
+
+.navbarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px;
+    position: sticky;
+    height: 80px;
+    background: $color-Primary;
+    box-shadow: 0px 7px 11.1px rgba(100, 208, 82, 0.25);
+
+    .navbarList {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .login-btn {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 32px;
+            height:40px;
+            background: #12372A;
+            border-radius: 4px;
+            color:white;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+//example to use variable
+// @use './variable' as v ; or  @use './variable' as * ;
+//property:v.$color-gray or property:$color-gray or @include headline()
+
+/* color variable list*/
+$color-Primary: #BFD8AF;
